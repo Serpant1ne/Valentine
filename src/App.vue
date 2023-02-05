@@ -1,26 +1,30 @@
 
 <script>
-  export default{
+
+export default{
     data(){
     	return{
         loaded: false,
         mainOpacity: 0,
-        textColor: "red",
-        designStyle: 1,
         companyName: ""
       }
   	},
     methods:{
-      links: function(){
-        console.log(this.$route)
-      },
       checkRoute(){
         console.log('deployed');
-        console.log($route)
+        console.log(this.$route)
+      },
+      set(){
+        let timeout = setTimeout(this.hideLoading, 1000)
+      },
+      hideLoading(){
+        this.loaded = true;
+        let timeout = setTimeout(this.mainOpacity = 1, 500)
       }
     },
     mounted(){
-      this.links()
+      this.checkRoute()
+      this.set()
     },
     computed:{
     }
@@ -28,23 +32,39 @@
 </script>
 
 <template>
-  <header class="header mb-12">
+  <div class="loading w-full h-full fixed bg-neutral-50 grid place-items-center" :class="{hidden: loaded}">
+    <svg aria-hidden="true" class="w-16 h-16 text-neutral-200 animate-spin dark:text-neutral-200 fill-pink-600" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+        <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+    </svg>
+  </div>
+  <header class="chapter header mb-12" >
     <div class="container mx-auto">
       <div class="section mx-6 py-6 flex">
-        <a href="#" class="name text-3xl text-neutral-900">{{companyName}}</a>
-        <button class="menu ml-auto"><img src="./img/Menu.svg" alt=""></button>
+        <a href="#" class="name text-3xl text-neutral-900">Valentine</a>
+        <div class="dropdown-menu group ml-auto my-auto relative">
+          <button class="menu" id="menu-button"><img src="./img/Menu.svg" alt=""></button>
+          <div class="dropdown-menu-content hidden pt-1 absolute right-0">
+            <ul class="list-none text-lg space-y-3 p-6 bg-pink-600 text-neutral-50 rounded-md text-right">
+              <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li>
+              <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
+              <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
+            </ul>
+          </div>
+        </div>
+        
       </div>
     </div>
     
   </header>
-  <main class="main mb-16">
+  <main class="chapter main mb-16">
     <div class="container mx-auto">
       <div class="section mx-6 text-neutral-900">
         <h1 class="text-2xl mb-12">Эта валентинка предназначена для <span class="name">Кати</span></h1>
 
         <div class="main-text relative flex mb-8">
           <img src="./img/Heart.svg" alt="" class="absolute heart blur-sm h-10 -rotate-34">
-          <p class="text w-60 mx-auto text-lg my-4">Сначала мне казалось, что ты - лучшее, что есть в моей жизни, и что я тебя очень люблю... Но когда я
+          <p class="text w-60 mx-auto text-xl my-4">Сначала мне казалось, что ты - лучшее, что есть в моей жизни, и что я тебя очень люблю... Но когда я
           подписывал(а) эту карточку, то понял(а), что ничего мне не показалось! Я люблю тебя с каждым днем все
           сильнее.</p>
           <img src="./img/Heart.svg" alt="" class="absolute heart blur-sm h-10 rotate-45 bottom-0 right-0">
@@ -56,14 +76,14 @@
       </div>
     </div>
   </main>
-  <footer class="footer bg-pink-600 text-neutral-50">
+  <footer class="chapter footer bg-pink-600 text-neutral-50 ">
     <div class="container mx-auto">
       <div class="section mx-6 py-6">
         <ul class="list-none text-lg space-y-3">
-          <li class="logo text-2xl">Valentine</li>
-          <li> <a href="#">О нас</a></li>
-          <li><a href="#">Создать валентинку</a></li>
-          <li><a href="#">Поддержать проект</a></li>
+          <li><a href="#" class="text-2xl logo">Valentine</a></li>
+          <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li>
+          <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
+          <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
         </ul>
       </div>
     </div>
@@ -73,15 +93,31 @@
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap');
 
-*{
-    font-family: 'Montserrat';
-    margin: 0;
-    padding: 0;
-}
+  *{
+      font-family: 'Montserrat';
+      margin: 0;
+      padding: 0;
+  }
 
-.name, .logo{
-    font-family: 'Pacifico';
-}
+  .name, .logo{
+      font-family: 'Pacifico';
+  }
+  
+  .chapter{
+    transition: opacity .5s ease-in-out;
+    opacity: v-bind(mainOpacity);
+  }
+
+  .dropdown-menu:hover > .dropdown-menu-content {
+    display: block;
+    opacity: 100%;
+  }
+
+  .dropdown-menu:active > .dropdown-menu-content {
+    display: block;
+    opacity: 100%;
+  }
+
   
 </style>
 
