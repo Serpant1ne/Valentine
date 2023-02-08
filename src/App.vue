@@ -16,10 +16,11 @@ export default{
         const ROUTER = useRouter()
         console.log('deployed');
         await ROUTER.isReady()
-        console.log(this.$route.query.test)
+        console.log(this.$route.query.accent)
+        this.accent = '#' + this.$route.query.accent
       },
       set(){
-        let timeout = setTimeout(this.hideLoading, 1000)
+        let timeout = setTimeout(this.hideLoading, 500)
       },
       hideLoading(){
         this.loaded = true;
@@ -31,6 +32,7 @@ export default{
       this.set()
     },
     computed:{
+
     }
   }
 </script>
@@ -44,7 +46,7 @@ export default{
   </div>
   <header class="chapter header mb-12" >
     <div class="container mx-auto">
-      <div class="section mx-6 py-6 flex">
+      <div class="section mx-6 py-6 flex md:mx-24">
         <a href="#" class="name text-3xl text-neutral-900">Valentine</a>
         <div class="dropdown-menu group ml-auto my-auto relative">
           <button class="menu" id="menu-button">
@@ -69,11 +71,11 @@ export default{
   </header>
   <main class="chapter main mb-16">
     <div class="container mx-auto">
-      <div class="section mx-6 text-neutral-900">
+      <div class="section mx-6 text-neutral-900 md:mx-24">
         <h1 class="text-2xl mb-12">Эта валентинка предназначена для <span class="name">Кати</span></h1>
 
         <div class="main-text relative flex mb-8">
-          <svg width="71" height="61" viewBox="0 0 71 61" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute heart blur-sm h-10 -rotate-34 w-10">
+          <svg width="71" height="61" viewBox="0 0 71 61" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute heart blur-sm h-12 -rotate-34 w-12">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.47839 30.5199L10.4697 35.5113L10.4697 35.5113L35.4264 60.468L35.4264 60.468L60.3831 35.5113L65.3745 30.52C72.2661 23.6284 72.2661 12.4549 65.3745 5.56327C58.4829 -1.32833 47.3093 -1.32833 40.4177 5.56327L35.4264 10.5546L30.4351 5.56324C23.5435 -1.32837 12.37 -1.32837 5.47839 5.56324C-1.41322 12.4548 -1.41322 23.6283 5.47839 30.5199Z" :fill="accent"/>
           </svg>
           <!-- <img src="./img/Heart.svg" alt="" class="absolute heart blur-sm h-10 -rotate-34 fill-blue-300"> -->
@@ -81,7 +83,7 @@ export default{
           подписывал(а) эту карточку, то понял(а), что ничего мне не показалось! Я люблю тебя с каждым днем все
           сильнее.</p>
           <!-- <img src="./img/Heart.svg" alt="" class="absolute heart blur-sm h-10 rotate-45 bottom-0 right-0"> -->
-          <svg width="71" height="61" viewBox="0 0 71 61" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute heart blur-sm h-10 w-10 rotate-45 bottom-0 right-0">
+          <svg width="71" height="61" viewBox="0 0 71 61" fill="none" xmlns="http://www.w3.org/2000/svg" class="absolute heart blur-sm h-12 w-12 rotate-45 bottom-0 right-0">
           <path fill-rule="evenodd" clip-rule="evenodd" d="M5.47839 30.5199L10.4697 35.5113L10.4697 35.5113L35.4264 60.468L35.4264 60.468L60.3831 35.5113L65.3745 30.52C72.2661 23.6284 72.2661 12.4549 65.3745 5.56327C58.4829 -1.32833 47.3093 -1.32833 40.4177 5.56327L35.4264 10.5546L30.4351 5.56324C23.5435 -1.32837 12.37 -1.32837 5.47839 5.56324C-1.41322 12.4548 -1.41322 23.6283 5.47839 30.5199Z" :fill="accent"/>
           </svg>
         </div>
@@ -94,7 +96,7 @@ export default{
   </main>
   <footer class="chapter footer  text-neutral-50 accent-bg">
     <div class="container mx-auto">
-      <div class="section mx-6 py-6">
+      <div class="section mx-6 py-6 md:mx-24">
         <ul class="list-none text-lg space-y-3">
           <li><a href="#" class="text-2xl logo">Valentine</a></li>
           <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li>
