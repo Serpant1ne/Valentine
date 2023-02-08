@@ -1,7 +1,8 @@
 
 <script>
-
+import { useRoute, useRouter } from 'vue-router';
 export default{
+  
     data(){
     	return{
         loaded: false,
@@ -10,9 +11,11 @@ export default{
       }
   	},
     methods:{
-      checkRoute(){
+      async checkRoute(){
+        const ROUTER = useRouter()
         console.log('deployed');
-        console.log(this.$route)
+        await ROUTER.isReady()
+        console.log(this.$route.query.test)
       },
       set(){
         let timeout = setTimeout(this.hideLoading, 1000)
