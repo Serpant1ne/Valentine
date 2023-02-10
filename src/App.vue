@@ -35,7 +35,7 @@ export default{
       },
       hideLoading(){
         this.loaded = true;
-        let timeout = setTimeout(this.mainOpacity = 1, 500)
+        this.mainOpacity = 1
       },
       checkHeight(){
         const wrapper = document.getElementById('mainPart')
@@ -158,12 +158,10 @@ export default{
 
   .dropdown-menu:hover > .dropdown-menu-content {
     display: block;
-    opacity: 100%;
   }
 
   .dropdown-menu:active > .dropdown-menu-content {
     display: block;
-    opacity: 100%;
   }
 
   .accent-bg{
