@@ -7,7 +7,7 @@ export default{
     	return{
         loaded: false,
         mainOpacity: 0,
-        accent: "#EA580C",
+        accent: "#DB2777",
         receiverName: "Тебя!",
         mainText: "Whoopsie-woo",
         senderName: "...",
@@ -18,15 +18,29 @@ export default{
         const ROUTER = useRouter()
         console.log('deployed');
         await ROUTER.isReady()
-        console.log(this.$route.query.accent)
-        if(this.$route.query.accent){
-          this.accent = '#' + this.$route.query.accent
+        console.log(this.$route.query.design)
+        if(this.$route.query.design){
+          if(this.$route.query.design === "Classic"){
+            this.accent = 'DB2777'
+          }
+          else if(this.$route.query.design === "Romantic"){
+            this.accent = '#BE123C'
+          }
+          else if(this.$route.query.design === "Passion"){
+            this.accent = '#DC2626'
+          }
+          else if(this.$route.query.design === "Charm"){
+            this.accent = '#A21CAF'
+          }
         }
-        if(this.$route.query.receiverName){
-          this.receiverName = '#' + this.$route.query.receiverName
+        if(this.$route.query.recieverName){
+          this.receiverName = this.$route.query.recieverName
         }
-        if(this.$route.query.text){
-          this.mainText = '#' + this.$route.query.text
+        if(this.$route.query.senderName){
+          this.senderName = this.$route.query.senderName
+        }
+        if(this.$route.query.mainText){
+          this.mainText = this.$route.query.mainText
         }
         
       },
@@ -87,7 +101,7 @@ export default{
             </button>
             <div class="dropdown-menu-content hidden pt-1 absolute right-0 ">
               <ul class="list-none text-lg space-y-3 p-6 accent text-neutral-50 rounded-md text-right accent-bg">
-                <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li>
+                <!-- <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li> -->
                 <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
                 <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
               </ul>
@@ -126,7 +140,7 @@ export default{
         <div class="section mx-6 py-6 md:mx-24">
           <ul class="list-none text-lg space-y-3">
             <li><a href="#" class="text-2xl logo">Valentine</a></li>
-            <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li>
+            <!-- <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li> -->
             <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
             <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
           </ul>
