@@ -102,8 +102,8 @@ export default{
             <div class="dropdown-menu-content hidden pt-1 absolute right-0 ">
               <ul class="list-none text-lg space-y-3 p-6 accent text-neutral-50 rounded-md text-right accent-bg">
                 <!-- <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li> -->
-                <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
-                <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
+                <li><a href="https://t.me/SValentines_bot" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
+                <li><a href="https://www.buymeacoffee.com/serpant1ne" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
               </ul>
             </div>
           </div>
@@ -141,8 +141,8 @@ export default{
           <ul class="list-none text-lg space-y-3">
             <li><a href="#" class="text-2xl logo">Valentine</a></li>
             <!-- <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">О нас</a></li> -->
-            <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
-            <li><a href="#" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
+            <li><a href="https://t.me/SValentines_bot" class="footer-link hover:underline decoration-dashed underline-offset-4">Создать валентинку</a></li>
+            <li><a href="https://www.buymeacoffee.com/serpant1ne" class="footer-link hover:underline decoration-dashed underline-offset-4">Поддержать проект</a></li>
           </ul>
         </div>
       </div>
